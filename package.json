@@ -1,0 +1,36 @@
+{
+  "name": "moveit",
+  "description": "This project is an assistant to the people working at home if exercise",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test:unit": "jest --watchAll"
+  },
+  "dependencies": {
+    "js-cookie": "^2.2.1",
+    "next": "10.0.7",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.12.17",
+    "@testing-library/dom": "^7.29.6",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.7.3",
+    "@types/jest": "^26.0.20",
+    "@types/js-cookie": "^2.2.6",
+    "@types/node": "^14.14.31",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "babel-jest": "^26.6.3",
+    "cypress": "^6.5.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.6.3",
+    "typescript": "^4.2.2"
+  },
+  "license": "MIT"
+}
