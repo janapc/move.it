@@ -9,9 +9,6 @@ on:
 
 jobs:
   cypress:
-    defaults:
-      run:
-        working-directory: .
 
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -28,6 +25,5 @@ jobs:
       - name: Run tests
         uses: cypress-io/github-action@v2
         with:	
-          working-directory: .
           browser: chrome
           headless: true

@@ -7,10 +7,6 @@ on:
   pull_request:
     branches: [ $default-branch ]
 
-defaults:
-  run:
-    working-directory: .
-
 jobs:
   jest:
     runs-on: ubuntu-latest
