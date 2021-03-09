@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "test:unit": "jest --watchAll",
+    "test:unit": "jest",
+    "test:unit:watch": "jest --watchAll",
     "test:unit:coverage": "jest --coverage",
     "test:e2e": "cypress open",
     "test:e2e:headless": "cypress run --browser chrome --headless"
