@@ -4,14 +4,14 @@ import { CountdownContext } from "../contexts/CountdownContext";
 
 import styles from "../styles/components/Countdown.module.css";
 
-export function Countdown() {
+export function Countdown () {
   const {
     minutes,
     seconds,
     hasFinished,
     isActive,
     startCountdown,
-    resetCountdown,
+    resetCountdown
   } = useContext(CountdownContext);
 
   const [closeHover, setCloseHover] = useState(false);
@@ -23,7 +23,7 @@ export function Countdown() {
 
   return (
     <div>
-      <div className={styles.countdownContainer}>
+      <div data-testid="time" className={styles.countdownContainer}>
         <div>
           <span>{minuteLeft}</span>
           <span>{minuteRight}</span>
@@ -35,14 +35,22 @@ export function Countdown() {
         </div>
       </div>
 
-      {hasFinished ? (
-        <button disabled className={`${styles.countdownButton} ${styles.countdownButtonFinished}`}>
+      {hasFinished
+        ? (
+        <button
+          data-testid="btn-finish"
+          disabled
+          className={`${styles.countdownButton} ${styles.countdownButtonFinished}`}
+        >
           Ciclo encerrado <img src="icons/check-circle.svg" />
         </button>
-      ) : (
+          )
+        : (
         <>
-          {isActive ? (
+          {isActive
+            ? (
             <button
+              data-testid="btn-leave"
               onClick={resetCountdown}
               type="button"
               onMouseEnter={() => setCloseHover(true)}
@@ -50,19 +58,23 @@ export function Countdown() {
               className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
             >
               Abandonar ciclo
-              <img src={closeHover ? "icons/close-hover.svg" : "icons/close.svg"} />
+              <img
+                src={closeHover ? "icons/close-hover.svg" : "icons/close.svg"}
+              />
             </button>
-          ) : (
+              )
+            : (
             <button
+              data-testid="btn-initial"
               onClick={startCountdown}
               type="button"
               className={styles.countdownButton}
             >
               Iniciar um ciclo <img src="icons/play.svg" />
             </button>
-          )}
+              )}
         </>
-      )}
+          )}
     </div>
   );
 }

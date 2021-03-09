@@ -18,7 +18,7 @@ interface Challenge {
   amount: number;
 }
 
-interface ChallengesContextData {
+export interface ChallengesContextData {
   level: number;
   currentExperience: number;
   expirenceToNextLevel: number;
@@ -32,7 +32,7 @@ interface ChallengesContextData {
 
 export const ChallengesContext = createContext({} as ChallengesContextData);
 
-export function ChallengesProvider({
+export function ChallengesProvider ({
   children,
   ...rest
 }: ChallengesProviderProps) {
@@ -59,7 +59,7 @@ export function ChallengesProvider({
     Cookies.set("challengesCompleted", String(challengesCompleted));
   }, [level, currentExperience, challengesCompleted]);
 
-  function startNewChallenge() {
+  function startNewChallenge () {
     const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
     const challenge = challenges[randomChallengeIndex];
 
@@ -68,16 +68,16 @@ export function ChallengesProvider({
 
     if (Notification.permission === "granted") {
       new Notification("Novo desafio 🎉", {
-        body: `Valendo ${challenge.amount}xp!`,
+        body: `Valendo ${challenge.amount}xp!`
       });
     }
   }
 
-  function resetChallenge() {
+  function resetChallenge () {
     setActiveChallenge(null);
   }
 
-  function completeChallenge() {
+  function completeChallenge () {
     if (!activeChallenge) return;
 
     const { amount } = activeChallenge;
@@ -94,12 +94,12 @@ export function ChallengesProvider({
     setChallengesCompleted(challengesCompleted + 1);
   }
 
-  function levelUp() {
+  function levelUp () {
     setLevel(level + 1);
     setIsLevelUpModalOpen(true);
   }
 
-  function closeLevelUpModal() {
+  function closeLevelUpModal () {
     setIsLevelUpModalOpen(false);
   }
 
@@ -114,7 +114,7 @@ export function ChallengesProvider({
         startNewChallenge,
         resetChallenge,
         completeChallenge,
-        closeLevelUpModal,
+        closeLevelUpModal
       }}
     >
       {children}
