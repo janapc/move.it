@@ -1,0 +1,33 @@
+name: Moveit e2e testing
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
+jobs:
+  cypress:
+    defaults:
+      run:
+        working-directory: .
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: npm install
+
+      - run: npm run dev
+        env:
+          NODE_ENV: development
+
+      - name: Run tests
+        uses: cypress-io/github-action@v2
+        with:	
+          working-directory: .
+          browser: chrome
+          headless: true
