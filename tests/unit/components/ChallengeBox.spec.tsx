@@ -27,8 +27,8 @@ const ChallengesContextValue: ChallengesContextData = {
 };
 
 const CountdownContextValue = {
-  minutes: Math.floor(1500 / 60),
-  seconds: 1500 % 60,
+  minutes: Math.floor(60 / 60),
+  seconds: 60 % 60,
   hasFinished: false,
   isActive: false,
   startCountdown: jest.fn(),

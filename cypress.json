@@ -4,6 +4,6 @@
   "integrationFolder": "./tests/e2e/specs",
   "pluginsFile": false,
   "supportFile": false,
-  "videosFolder": "./tests/e2e/videos",
-  "screenshotsFolder": "./tests/e2e/screenshots"
+  "videos": false,
+  "screenshotOnRunFailure": false
 }

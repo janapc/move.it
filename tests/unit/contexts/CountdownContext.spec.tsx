@@ -20,7 +20,7 @@ describe("CountdownContext", () => {
 
     expect(result.current).toMatchObject({
       minutes: 0,
-      seconds: 3,
+      seconds: 6,
       hasFinished: false,
       isActive: false,
       startCountdown: result.current.startCountdown,

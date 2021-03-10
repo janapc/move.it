@@ -5,8 +5,8 @@ import { Countdown } from "../../../src/components/Countdown";
 import { CountdownContext } from "../../../src/contexts/CountdownContext";
 
 const CountdownContextValue = {
-  minutes: Math.floor(1500 / 60),
-  seconds: 1500 % 60,
+  minutes: Math.floor(60 / 60),
+  seconds: 60 % 60,
   hasFinished: false,
   isActive: false,
   startCountdown: jest.fn(),
@@ -23,7 +23,7 @@ describe("Countdown Component", () => {
 
     const { getByTestId } = render(<Countdown />, { wrapper });
 
-    expect(getByTestId("time")).toHaveTextContent("25:00");
+    expect(getByTestId("time")).toHaveTextContent("01:00");
     expect(getByTestId("btn-initial")).toBeVisible();
     expect(getByTestId("btn-initial")).toHaveTextContent("Iniciar um ciclo");
 
@@ -43,7 +43,7 @@ describe("Countdown Component", () => {
 
     const { getByTestId } = render(<Countdown />, { wrapper });
 
-    expect(getByTestId("time")).toHaveTextContent("25:00");
+    expect(getByTestId("time")).toHaveTextContent("01:00");
     expect(getByTestId("btn-leave")).toBeVisible();
     expect(getByTestId("btn-leave")).toHaveTextContent("Abandonar ciclo");
 
@@ -64,7 +64,7 @@ describe("Countdown Component", () => {
 
     const { getByTestId } = render(<Countdown />, { wrapper });
 
-    expect(getByTestId("time")).toHaveTextContent("25:00");
+    expect(getByTestId("time")).toHaveTextContent("01:00");
     expect(getByTestId("btn-finish")).toBeDisabled();
     expect(getByTestId("btn-finish")).toHaveTextContent("Ciclo encerrado");
   });

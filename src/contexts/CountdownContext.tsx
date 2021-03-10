@@ -11,7 +11,8 @@ import { ChallengesContext } from "./ChallengesContext";
 interface CountdownProviderProps {
   children: ReactNode;
 }
-const timeInitial = process.env.NODE_ENV === "production" ? 25 * 60 : 3;
+
+const timeInitial = process.env.NODE_ENV === "production" ? 25 * 60 : 0.1 * 60;
 
 interface CountdownContextData {
   minutes: number;

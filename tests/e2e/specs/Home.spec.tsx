@@ -9,7 +9,7 @@ describe("<Home />", () => {
 
     cy.get("[data-testid=time]")
       .invoke("text")
-      .then((text) => expect(text).to.equal("00:03"));
+      .then((text) => expect(text).to.equal("00:06"));
 
     cy.get("[data-testid=btn-initial]")
       .invoke("text")
@@ -17,7 +17,7 @@ describe("<Home />", () => {
 
     cy.get("[data-testid=btn-initial]").click();
 
-    cy.wait(3000);
+    cy.wait(6000);
 
     cy.get("[data-testid=time]")
       .invoke("text")
@@ -33,7 +33,7 @@ describe("<Home />", () => {
 
     cy.get("[data-testid=time]")
       .invoke("text")
-      .then((text) => expect(text).to.equal("00:03"));
+      .then((text) => expect(text).to.equal("00:06"));
 
     cy.get("[data-testid=btn-initial]")
       .invoke("text")
@@ -53,7 +53,7 @@ describe("<Home />", () => {
 
     cy.get("[data-testid=time]")
       .invoke("text")
-      .then((text) => expect(text).to.equal("00:03"));
+      .then((text) => expect(text).to.equal("00:06"));
 
     cy.get("[data-testid=btn-initial]")
       .invoke("text")
@@ -61,14 +61,17 @@ describe("<Home />", () => {
 
     cy.get("[data-testid=btn-initial]").click();
 
-    cy.wait(3000);
+    cy.wait(6000);
 
     cy.get("[data-testid=btn-succeeded]").click();
 
-    if (cy.get("[data-testid=btn-close-modal]").should("exist")) {
-      cy.get("[data-testid=btn-close-modal]").click();
-      cy.get("[data-testid=level]").should("contain.text", "2");
-    }
+    cy.get("body").then($body => {
+      if ($body.find("[data-testid=btn-close-modal]").length > 0) {
+        cy.get("[data-testid=btn-close-modal]").click();
+        cy.get("[data-testid=level]").should("contain.text", "2");
+      }
+    });
+
     cy.get("[data-testid=challengesCompleted]").should("have.text", "1");
   });
 
@@ -77,7 +80,7 @@ describe("<Home />", () => {
 
     cy.get("[data-testid=time]")
       .invoke("text")
-      .then((text) => expect(text).to.equal("00:03"));
+      .then((text) => expect(text).to.equal("00:06"));
 
     cy.get("[data-testid=btn-initial]")
       .invoke("text")
@@ -85,7 +88,7 @@ describe("<Home />", () => {
 
     cy.get("[data-testid=btn-initial]").click();
 
-    cy.wait(3000);
+    cy.wait(6000);
 
     cy.get("[data-testid=btn-failed]").click();
   });
