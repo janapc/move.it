@@ -1,0 +1,79 @@
+.containerTwitter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+
+  width: 100vw;
+  height: 100vh;
+  background: var(--primary);
+}
+
+.containerTwitter .nextLevel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem;
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
+}
+
+.containerTwitter .nextLevel h2 {
+  font-size: 30rem;
+  font-weight: 600;
+  color: var(--blue);
+  background: url("/icons/levelup.svg") no-repeat center;
+  background-size: contain;
+}
+
+.containerTwitter .nextLevel > p {
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--title);
+}
+
+.containerTwitter .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10rem;
+  width: 100%;
+  height: 100%;
+}
+
+.containerTwitter .info div h4 {
+  font-size: 1.4rem;
+
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.containerTwitter .info div p {
+  margin-top: 1rem;
+  padding-bottom: 2rem;
+  border-bottom: 1.5px solid #dcdde0;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.containerTwitter .info div p span {
+  color: var(--blue);
+}
+
+.containerTwitter .info div {
+  width: 100%;
+  height: 100%;
+}
+
+.containerTwitter .info div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.containerTwitter .info div:last-child img {
+  width: 40%;
+}

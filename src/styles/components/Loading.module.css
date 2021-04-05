@@ -1,0 +1,39 @@
+@keyframes slide {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(90px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.loadingContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 2.4rem;
+  color: var(--blue);
+}
+
+.loadingContainer > div {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  border-radius: 8px;
+  width: 100px;
+  height: 10px;
+  background-color: var(--blue);
+}
+.loadingContainer > div > span {
+  height: 6px;
+  width: 10px;
+  background-color: white;
+  border-radius: 8px;
+  animation: slide 3s linear infinite;
+}

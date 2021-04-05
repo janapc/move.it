@@ -1,0 +1,121 @@
+.loginContainer {
+  height: 100vh;
+  width: 100vw;
+
+  background: var(--blue);
+}
+
+.loginContainer section {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+section .loginLeft {
+  width: 100%;
+  height: 100%;
+
+  display: none;
+}
+
+section .loginRight {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginRight h2 {
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 2.4rem;
+  margin-top: 5rem;
+}
+
+.loginRight .github {
+  display: flex;
+  max-width: 250px;
+  margin-top: 1.4rem;
+}
+
+.loginRight .github p {
+  margin-left: 1.4rem;
+  color: var(--text-highlight);
+  font-size: 1rem;
+}
+
+.loginRight .fields {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 2rem;
+  height: 80px;
+}
+
+.loginRight .fields .fieldUsername {
+  display: flex;
+  height: 80px;
+  width: 100%;
+  background: linear-gradient(90deg, #4953B8 0%, rgba(73, 83, 184, 0.2) 100%);
+  border-radius: 5px 0px 0px 5px;
+}
+
+.loginRight .fields .fieldUsername:hover {
+  border: 1.5px solid #414AA3;
+}
+
+.loginRight .fields .fieldUsername input {
+  border: none;
+  width: 100%;
+  background: none;
+  margin-left: 1rem;
+  outline: none;
+  color: var(--primary);
+}
+
+.fields .fieldUsername input::placeholder {
+  color: var(--primary);
+}
+
+.btnLoginInactive {
+  background: var(--blue-dark);
+  cursor: not-allowed;
+}
+
+.btnLoginAvailable {
+  background: var(--green);
+}
+
+.fields .btnLogin {
+  border: none;
+  height: 80px;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px 5px 5px 0px;
+}
+
+@media (min-width: 720px) {
+  .loginContainer section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  section .loginLeft {
+    display: flex;
+  }
+
+  section .loginRight {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}

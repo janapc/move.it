@@ -42,7 +42,7 @@ export function Countdown () {
           disabled
           className={`${styles.countdownButton} ${styles.countdownButtonFinished}`}
         >
-          Ciclo encerrado <img src="icons/check-circle.svg" />
+          Ciclo encerrado <img src="/icons/check-circle.svg" />
         </button>
           )
         : (
@@ -59,7 +59,7 @@ export function Countdown () {
             >
               Abandonar ciclo
               <img
-                src={closeHover ? "icons/close-hover.svg" : "icons/close.svg"}
+                src={closeHover ? "/icons/close-hover.svg" : "/icons/close.svg"}
               />
             </button>
               )
@@ -70,7 +70,7 @@ export function Countdown () {
               type="button"
               className={styles.countdownButton}
             >
-              Iniciar um ciclo <img src="icons/play.svg" />
+              Iniciar um ciclo <img src="/icons/play.svg" />
             </button>
               )}
         </>
