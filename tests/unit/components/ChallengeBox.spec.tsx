@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { render, fireEvent } from "@testing-library/react";
 
 import { ChallengeBox } from "../../../src/components/ChallengeBox";
@@ -19,6 +20,7 @@ const ChallengesContextValue: ChallengesContextData = {
     description: "Walk a little",
     amount: 150
   },
+  expirenceTotal: 0,
   expirenceToNextLevel: Math.pow((2 + 1) * 4, 2),
   startNewChallenge: jest.fn(),
   resetChallenge: jest.fn(),
@@ -41,7 +43,7 @@ describe("ChallengeBox Component", () => {
     jest.resetAllMocks();
   });
   it("Should show the challenge and complete it", () => {
-    const wrapper = ({ children }) => (
+    const wrapper: FC = ({ children }) => (
       <ChallengesContext.Provider value={ChallengesContextValue}>
         <CountdownContext.Provider value={CountdownContextValue}>
           {children}
@@ -65,7 +67,7 @@ describe("ChallengeBox Component", () => {
   });
 
   it("Should show the challenge and complete it", () => {
-    const wrapper = ({ children }) => (
+    const wrapper: FC = ({ children }) => (
       <ChallengesContext.Provider value={ChallengesContextValue}>
         <CountdownContext.Provider value={CountdownContextValue}>
           {children}
@@ -83,7 +85,7 @@ describe("ChallengeBox Component", () => {
     );
     expect(getByTestId("img-main")).toHaveAttribute(
       "src",
-      `icons/${ChallengesContextValue.activeChallenge.type}.svg`
+      `/icons/${ChallengesContextValue.activeChallenge.type}.svg`
     );
 
     fireEvent.click(getByTestId("btn-failed"));

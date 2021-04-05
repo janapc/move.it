@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { render } from "@testing-library/react";
 
 import { ExperienceBar } from "../../../src/components/ExperienceBar";
@@ -14,6 +15,7 @@ const ChallengesContextValue = {
   currentExperience: 2,
   challengesCompleted: 0,
   activeChallenge: null,
+  expirenceTotal: 0,
   expirenceToNextLevel: Math.pow((2 + 1) * 4, 2),
   startNewChallenge: jest.fn(),
   resetChallenge: jest.fn(),
@@ -23,7 +25,7 @@ const ChallengesContextValue = {
 
 describe("ExperienceBar Component", () => {
   it("Should render the component of ExperienceBar correctly", () => {
-    const wrapper = ({ children }) => (
+    const wrapper: FC = ({ children }) => (
       <ChallengesContext.Provider value={ChallengesContextValue}>
         {children}
       </ChallengesContext.Provider>

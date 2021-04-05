@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { render, fireEvent } from "@testing-library/react";
 
 import { Countdown } from "../../../src/components/Countdown";
@@ -15,7 +16,7 @@ const CountdownContextValue = {
 
 describe("Countdown Component", () => {
   it("Should show this button when the cycle to initial", () => {
-    const wrapper = ({ children }) => (
+    const wrapper: FC = ({ children }) => (
       <CountdownContext.Provider value={CountdownContextValue}>
         {children}
       </CountdownContext.Provider>
@@ -35,7 +36,7 @@ describe("Countdown Component", () => {
   it("Should show this button when the cycle to leave", () => {
     CountdownContextValue.isActive = true;
 
-    const wrapper = ({ children }) => (
+    const wrapper: FC = ({ children }) => (
       <CountdownContext.Provider value={CountdownContextValue}>
         {children}
       </CountdownContext.Provider>
@@ -56,7 +57,7 @@ describe("Countdown Component", () => {
     CountdownContextValue.isActive = false;
     CountdownContextValue.hasFinished = true;
 
-    const wrapper = ({ children }) => (
+    const wrapper: FC = ({ children }) => (
       <CountdownContext.Provider value={CountdownContextValue}>
         {children}
       </CountdownContext.Provider>

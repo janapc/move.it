@@ -1,15 +1,24 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
-
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState
+} from "react";
+import axios from "axios";
 import Cookies from "js-cookie";
 
 import challenges from "../../challenges.json";
+
 import { LevelUpModal } from "../components/LevelUpModal";
+import { UserContext } from "./UserContext";
 
 interface ChallengesProviderProps {
   children: ReactNode;
   level: number;
   currentExperience: number;
   challengesCompleted: number;
+  expirenceTotal: number;
 }
 
 interface Challenge {
@@ -22,6 +31,7 @@ export interface ChallengesContextData {
   level: number;
   currentExperience: number;
   expirenceToNextLevel: number;
+  expirenceTotal: number;
   challengesCompleted: number;
   activeChallenge: Challenge;
   startNewChallenge: () => void;
@@ -36,7 +46,12 @@ export function ChallengesProvider ({
   children,
   ...rest
 }: ChallengesProviderProps) {
+  const { user } = useContext(UserContext);
+
   const [level, setLevel] = useState(rest.level ?? 1);
+  const [expirenceTotal, setExpirenceTotal] = useState(
+    rest.expirenceTotal ?? 0
+  );
   const [currentExperience, setCurrentExperience] = useState(
     rest.currentExperience ?? 0
   );
@@ -54,10 +69,29 @@ export function ChallengesProvider ({
   }, []);
 
   useEffect(() => {
-    Cookies.set("level", String(level));
-    Cookies.set("currentExperience", String(currentExperience));
-    Cookies.set("challengesCompleted", String(challengesCompleted));
-  }, [level, currentExperience, challengesCompleted]);
+    async function saveDataOfChallenges () {
+      Cookies.set("level", String(level));
+      Cookies.set("currentExperience", String(currentExperience));
+      Cookies.set("challengesCompleted", String(challengesCompleted));
+      Cookies.set("expirenceTotal", String(expirenceTotal));
+
+      await axios.post(
+        "/api/user",
+        {
+          challenges: challengesCompleted,
+          level,
+          experience: expirenceTotal
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${user.token ?? ""}`
+          }
+        }
+      );
+    }
+
+    saveDataOfChallenges();
+  }, [level, currentExperience, challengesCompleted, expirenceTotal]);
 
   function startNewChallenge () {
     const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
@@ -83,6 +117,9 @@ export function ChallengesProvider ({
     const { amount } = activeChallenge;
 
     let finalExperience = currentExperience + amount;
+
+    setExpirenceTotal(expirenceTotal + amount);
+
     if (finalExperience >= expirenceToNextLevel) {
       finalExperience = finalExperience - expirenceToNextLevel;
 
@@ -111,6 +148,7 @@ export function ChallengesProvider ({
         challengesCompleted,
         activeChallenge,
         expirenceToNextLevel,
+        expirenceTotal,
         startNewChallenge,
         resetChallenge,
         completeChallenge,

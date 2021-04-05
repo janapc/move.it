@@ -14,11 +14,12 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - uses: actions/checkout@v2
-
+      - uses: actions/checkout@v2 
       - run: npm install
 
       - name: Run tests
+        env:
+          SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
         uses: cypress-io/github-action@v2
         with:	
           browser: chrome

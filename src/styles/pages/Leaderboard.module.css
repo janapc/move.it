@@ -1,0 +1,123 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.containerLeaderboard {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s ease-in 0s;
+  margin: 1rem;
+}
+
+.containerLeaderboard h1 {
+  font-weight: 500;
+  font-size: 2.4rem;
+  color: var(--title);
+  margin-top: 3rem;
+}
+
+.rank {
+  margin-top: 3rem;
+  overflow: auto;
+}
+
+
+.rank table tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rank table thead tr {
+  margin-bottom: 2rem;
+}
+
+.rank table thead tr th {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.rank table thead tr th:not(:first-child) {
+  width: 100%;
+}
+
+.rank table tbody tr {
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+.rank table tbody tr td {
+  background: var(--primary);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.rank table tbody tr td:not(:first-child) {
+  width: 100%;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.rank table tbody tr td:first-child {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  color: var(--text);
+  border-radius: 5px 0px 0px 5px;
+}
+
+.rank table tbody tr td p span {
+  color: var(--blue);
+}
+
+.rank table tbody tr td:nth-child(2) {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.info {
+  margin-left: 1rem;
+}
+
+.info p {
+  color: var(--title);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.info span img {
+  margin-right: 9px;
+  width: 16px;
+  height: 16px;
+}
+
+.avatar > img {
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+}
+
+.position {
+  height: auto;
+  width: 20px;
+  margin-right: 8px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .containerLeaderboard {
+    margin: 0 auto;
+    width: 70%;
+  }
+  .rank table {
+    width: 100%;
+  }
+}

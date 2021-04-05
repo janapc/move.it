@@ -18,7 +18,7 @@ describe("CountdownContext", () => {
       wrapper
     });
 
-    expect(result.current).toMatchObject({
+    expect(result.current).toEqual({
       minutes: 0,
       seconds: 6,
       hasFinished: false,
