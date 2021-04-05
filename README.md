@@ -7,6 +7,8 @@
   <img alt="Language top" src="https://img.shields.io/github/languages/top/janapc/move.it"/>
   <img alt="Repo size" src="https://img.shields.io/github/repo-size/janapc/move.it"/>
   <img alt="License" src="https://img.shields.io/github/license/janapc/move.it"/>
+   <img alt="CI Moveit e2e" src="https://github.com/janapc/move.it/actions/workflows/ci-moveit-dev-e2e.yml/badge.svg"/>
+  <img alt="CI Moveit Unit" src="https://github.com/janapc/move.it/actions/workflows/ci-moveit-dev-unit.yml/badge.svg"/>
 </p>
 
 ---
