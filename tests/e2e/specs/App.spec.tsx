@@ -47,8 +47,8 @@ describe("<App />", () => {
         );
       },
     });
-    
-    cy.wait("@user");
+
     cy.url().should("include", "/dashboard/home");
+    cy.wait("@user");
   });
 });
