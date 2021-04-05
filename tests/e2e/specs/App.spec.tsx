@@ -48,8 +48,6 @@ describe("<App />", () => {
       },
     });
 
-    cy.wait(3000);
-
     cy.url().should("include", "/dashboard/home");
   });
 });
