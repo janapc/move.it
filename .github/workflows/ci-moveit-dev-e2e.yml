@@ -18,9 +18,12 @@ jobs:
       - run: npm install
 
       - name: Run tests
-        env:
-          SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
-        uses: cypress-io/github-action@v2
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      - uses: cypress-io/github-action@v2
         with:	
           browser: chrome
           headless: true
