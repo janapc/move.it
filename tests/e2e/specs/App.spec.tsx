@@ -37,7 +37,7 @@ describe("<App />", () => {
       body: {
         success: true,
       },
-    });
+    })
 
     cy.visit(APP_URL, {
       onBeforeLoad: (win) => {
@@ -47,8 +47,12 @@ describe("<App />", () => {
         );
       },
     });
+    
+    cy.setCookie("level", "2");
+    cy.setCookie("currentExperience", "120");
+    cy.setCookie("challengesCompleted", "2");
+    cy.setCookie("expirenceTotal", "190");
 
-    cy.wait(2000);
-    cy.url().should("include", "/dashboard/home");
+    cy.url().should('include', '/dashboard/home')
   });
 });
