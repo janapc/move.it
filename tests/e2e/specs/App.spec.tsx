@@ -37,7 +37,7 @@ describe("<App />", () => {
       body: {
         success: true,
       },
-    });
+    }).as("user");
 
     cy.visit(APP_URL, {
       onBeforeLoad: (win) => {
@@ -47,7 +47,8 @@ describe("<App />", () => {
         );
       },
     });
-
+    
+    cy.wait("@user");
     cy.url().should("include", "/dashboard/home");
   });
 });
