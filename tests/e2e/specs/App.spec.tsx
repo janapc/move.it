@@ -21,7 +21,7 @@ describe("<App />", () => {
     cy.url().should("include", "/login");
   });
 
-  it("Should redirect the user to page of dashboard", () => {
+  it.skip("Should redirect the user to page of dashboard", () => {
     cy.intercept("GET", "/api/authentication", (req) => {
       req.reply((res) => {
         if (req.headers.authorization) {
